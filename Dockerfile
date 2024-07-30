@@ -7,8 +7,6 @@ WORKDIR /usr/src/app
 # Copy the Cargo.toml and Cargo.lock files to the container
 COPY Cargo.toml Cargo.lock ./
 
-# Fetch dependencies
-RUN cargo fetch
 
 # Copy the source code to the container
 COPY src ./src
@@ -17,7 +15,7 @@ COPY src ./src
 RUN cargo build --release
 
 # Use a minimal base image for the final stage
-FROM debian:buster-slim
+FROM debian:bookworm-slim
 
 # Install any necessary packages
 RUN apt-get update && apt-get install -y \
