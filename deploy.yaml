@@ -17,3 +17,6 @@ spec:
           image: naceur631/taxapi:latest
           ports:
             - containerPort: 8080
+          resources:
+            limits:
+              nvidia.com/gpu: 1 # requesting 1 GPU
