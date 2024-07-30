@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tax-api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tax-api
+  template:
+    metadata:
+      labels:
+        app: tax-api
+    spec:
+      containers:
+        - name: tax-api-container
+          image: naceur631/taxapi:latest
+          ports:
+            - containerPort: 8080
