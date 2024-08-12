@@ -8,7 +8,7 @@ async fn calcul_gain_impot(assurance: web::Json<Assurance>) -> impl Responder {
     let revenu = assurance.revenu;
     let impots = calculer_impot(revenu);
     HttpResponse::Ok().json(json!({
-        "impot_total": impots
+        "impot_total 1": impots
     }))
 }
 
